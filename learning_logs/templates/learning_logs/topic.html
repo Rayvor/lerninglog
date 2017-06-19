@@ -5,7 +5,7 @@
         {{ topic }}
     </h2>
     <h3 class="rightstr" style="float: left; width: 50%; text-align: right; margin-top: 25px">
-        <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+        <a href="{% url 'learning_logs:new_entry' topic.id %}">Добавить заметку</a>
     </h3>
     <div style="clear: left"></div>
 {% endblock %}
@@ -21,11 +21,11 @@
             <div class="panel-body">
                 {{ entry.text|linebreaks }}
                 <p style="text-align: right;">
-                    <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit</a>
+                    <a href="{% url 'learning_logs:edit_entry' entry.id %}">Редактировать</a>
                 </p>
             </div>
         </div><!-- panel -->
         {% empty %}
-            There are no entries for this topic yet.
+            Здесь нет еще заметок.
     {% endfor %}
 {% endblock %}
