@@ -131,7 +131,9 @@ BOOTSTRAP3 = {
 }
 
 # Настройки Heroku
-if os.getcwd() == '/app':
+cwd = os.getcwd()
+print("--- CWD ---\n", cwd, "\n---\n")
+if cwd == '/app' or cwd[:4] == '/tmp':
     import dj_database_url
     DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')
@@ -142,13 +144,16 @@ if os.getcwd() == '/app':
 
     # Разрешены все заголовки хостов.
     ALLOWED_HOSTS = ['*']
+    DEBUG = True
 
     # Конфигурация статических ресурсов
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
+    # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 
