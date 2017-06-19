@@ -20,7 +20,7 @@ def topics(request):
 def topic(request, topic_id):
     """Выводит одну тему и все ее записи"""
     topic = get_object_or_404(Topic, id=topic_id)
-    #LOL
+    #LOL#CHEB
     #Проверка того, что тема принадлежит текущему пользователю.
     check_topic_owner(request, topic)
 
